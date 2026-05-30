@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Sai Sathvik Pidikiti | Portfolio</title>
+  <meta name="description"
+    content="CS sophomore at NJIT specializing in AI & Cybersecurity. Explore projects, research, and experience." />
+  <meta name="author" content="Sri Sai Sathvik Pidikiti" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sri Sai Sathvik Pidikiti | Portfolio" />
+  <meta property="og:description" content="CS sophomore at NJIT | AI & Cybersecurity" />
+  <meta property="og:url" content="https://sssathvik.dev" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome 6.4.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl0GPpGFPZRYleh1j3AYSnnmpAE0Kv13X+5Ae7jFbKp/dajOBqmFjgxBYh8w5iFVHfOT1z6WpRLOw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" aria-hidden="true"></div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="#" class="nav-logo" aria-label="Sathvik Home">Sathvik<span>.</span></a>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="#about" role="menuitem">About</a></li>
+        <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#research" role="menuitem">Research</a></li>
+        <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+        <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+        <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-name reveal">Sri Sai Sathvik Pidikiti</h1>
+      <div class="hero-typing-wrapper reveal reveal-delay-1" aria-live="polite">
+        <span id="typing-text"></span><span class="cursor-blink" aria-hidden="true">|</span>
+      </div>
+      <p class="hero-subtitle reveal reveal-delay-2">NJIT Ying Wu College of Computing '29 &nbsp;|&nbsp; Newark, NJ</p>
+      <div class="hero-cta reveal reveal-delay-3">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-arrow-down"></i> View My Work
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1vIeOtzkkn_dZ9QjyPrtdmQ671uQps-ch"
+          class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about">
+    <div class="container">
+      <span class="section-label reveal">Who I Am</span>
+      <h2 class="section-heading reveal">About Me</h2>
+      <div class="about-grid">
+        <div class="about-photo-wrapper reveal reveal-delay-1">
+          <div class="about-photo-ring" aria-hidden="true"></div>
+          <img src="assets/images/profile.jpeg" alt="Sri Sai Sathvik Pidikiti — profile photo" class="about-photo"
+            loading="lazy" />
+        </div>
+        <div class="about-text">
+          <p class="about-bio reveal reveal-delay-2">
+            I'm a Computer Science student at NJIT's Ying Wu College of Computing (GPA: 3.839), passionate about the
+            intersection of Artificial Intelligence and Cybersecurity — from LLM-powered threat detection to the ethics
+            of secure model deployment. I build things, research things, and connect the two.
+          </p>
+          <div class="about-stats">
+            <div class="stat-card reveal reveal-delay-2">
+              <span class="stat-number">3.839</span>
+              <span class="stat-label">Cumulative GPA</span>
+            </div>
+            <div class="stat-card reveal reveal-delay-3">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Research Papers</span>
+            </div>
+            <div class="stat-card reveal reveal-delay-4">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Roles @ NJIT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section id="projects">
+    <div class="container">
+      <span class="section-label reveal">Portfolio</span>
+      <h2 class="section-heading reveal">Things I've Built</h2>
+      <div class="projects-grid">
+
+        <!-- Project 1: Flamingo -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-icon"><i class="fa-solid fa-paper-plane"></i></div>
+          <h3 class="project-title">Flamingo</h3>
+          <p class="project-desc">
+            Full-stack AI system that automates job applications using local LLM inference for resume parsing and
+            semantic job ranking.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">Google Cloud</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">LLM</span>
+            <span class="tag">AJAX</span>
+          </div>
+          <span class="badge-coming-soon"><i class="fa-solid fa-clock"></i> Coming Soon</span>
+        </div>
+
+        <!-- Project 2: Portfolio -->
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-icon"><i class="fa-solid fa-code"></i></div>
+          <h3 class="project-title">Personal Portfolio</h3>
+          <p class="project-desc">
+            This site — designed and built from scratch with clean UI, responsive layout, and fast load performance.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+          </div>
+          <a href="#" class="project-link" aria-label="View live demo">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RESEARCH ==================== -->
+  <section id="research">
+    <div class="container">
+      <span class="section-label reveal">Publications</span>
+      <h2 class="section-heading reveal">Research &amp; Writing</h2>
+      <div class="timeline">
+
+        <!-- Paper 1 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-date">March 2026 · 11 Pages</span>
+          <h3 class="timeline-title">Artificial Intelligence in Cybersecurity — White Paper</h3>
+          <p class="timeline-desc">
+            Analyzed AI's dual role in cybersecurity — ML-based threat detection, generative AI attack automation,
+            adversarial attacks, and ethics of AI-driven security. Argued for a human-AI collaborative model.
+          </p>
+          <a href="https://docs.google.com/document/d/1em0D6KxLkHvrYCm2ZhoONXVKNmuij93JFL8HwKPUPy4/edit?usp=sharing"
+            class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-file-lines"></i> Read Paper
+          </a>
+        </div>
+
+        <!-- Paper 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-date">April 2026 · 8 Pages</span>
+          <h3 class="timeline-title">Why AI Can't Replace the Human Workforce in Cybersecurity</h3>
+          <p class="timeline-desc">
+            Examined AI limitations including false positives, adversarial evasion, and the irreplaceable role of human
+            judgment. Communicated technical concepts to a general audience.
+          </p>
+          <a href="https://docs.google.com/document/d/1eFUeFqqmvM_Aa_scjQChGUDp4-g2FtBgUePKL2fo_Lw/edit?usp=sharing"
+            class="btn btn-outline btn-sm" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-file-lines"></i> Read Paper
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section id="experience">
+    <div class="container">
+      <span class="section-label reveal">Career</span>
+      <h2 class="section-heading reveal">Experience</h2>
+      <div class="timeline">
+
+        <!-- Role 1 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-date">May 2026 – Present · Hybrid</span>
+          <h3 class="timeline-title">Research Assistant</h3>
+          <p class="timeline-org">NJIT SPUR Lab</p>
+          <p class="timeline-desc">
+            Working with Prof. Nathan Malkin analyzing security &amp; privacy teaching standards across K-12 education
+            in the US. Classifying standards into topic categories using structured taxonomy and SQLite databases to
+            support academic publication.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">Research</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">Python</span>
+            <span class="tag">Academic Writing</span>
+            <span class="tag">Data Analysis</span>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-date">May 2026 – Present · On-site</span>
+          <h3 class="timeline-title">Special Event Technician</h3>
+          <p class="timeline-org">NJIT Media Technology Support Services</p>
+          <p class="timeline-desc">
+            Manage end-to-end AV operations for live campus events — real-time troubleshooting of projectors,
+            microphones, cameras, and video conferencing systems under live-event pressure.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">AV Systems</span>
+            <span class="tag">Troubleshooting</span>
+            <span class="tag">Event Management</span>
+            <span class="tag">Project Management</span>
+          </div>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-date">Jan 2026 – Present · On-site</span>
+          <h3 class="timeline-title">Mailroom Assistant</h3>
+          <p class="timeline-org">NJIT University Operations</p>
+          <p class="timeline-desc">
+            Rated Outstanding (top 5%) for Independence &amp; Communication Skills with overall Highly Recommend rating.
+            Manage high-volume package processing and campus-wide distribution.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">Microsoft Office</span>
+            <span class="tag">Logistics</span>
+            <span class="tag">Communication</span>
+            <span class="tag">Support Services</span>
+          </div>
+        </div>
+
+        <!-- Role 4 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-date">May 2026 – Present · On-site</span>
+          <h3 class="timeline-title">Member — Entrepreneurs Society</h3>
+          <p class="timeline-org">NJIT</p>
+          <p class="timeline-desc">
+            Engage with student entrepreneurs and startup founders, discussing product development, technology, and
+            innovation. Share insights on AI and software development while seeking mentorship to refine projects.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">Entrepreneurship</span>
+            <span class="tag">Product Development</span>
+            <span class="tag">Networking</span>
+            <span class="tag">Innovation</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS ==================== -->
+  <section id="skills">
+    <div class="container">
+      <span class="section-label reveal">Expertise</span>
+      <h2 class="section-heading reveal">Skills &amp; Tools</h2>
+      <div class="skills-groups">
+
+        <div class="skills-group reveal">
+          <h3 class="skills-group-title"><i class="fa-solid fa-terminal"></i> Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">AJAX</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </div>
+        </div>
+
+        <div class="skills-group reveal reveal-delay-1">
+          <h3 class="skills-group-title"><i class="fa-solid fa-wrench"></i> Tools &amp; Platforms</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Google Cloud</span>
+            <span class="skill-tag">Supabase</span>
+            <span class="skill-tag">Playwright</span>
+            <span class="skill-tag">Ollama</span>
+            <span class="skill-tag">LaTeX</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Canva</span>
+          </div>
+        </div>
+
+        <div class="skills-group reveal reveal-delay-2">
+          <h3 class="skills-group-title"><i class="fa-solid fa-brain"></i> Domains</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Artificial Intelligence</span>
+            <span class="skill-tag">Cybersecurity</span>
+            <span class="skill-tag">Full-Stack Development</span>
+            <span class="skill-tag">Research</span>
+            <span class="skill-tag">LLMs</span>
+            <span class="skill-tag">Network Security</span>
+            <span class="skill-tag">Data Analysis</span>
+          </div>
+        </div>
+
+        <div class="skills-group reveal reveal-delay-3">
+          <h3 class="skills-group-title"><i class="fa-solid fa-language"></i> Spoken</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Telugu (Native)</span>
+            <span class="skill-tag">English (Fluent)</span>
+            <span class="skill-tag">Hindi (Beginner)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CERTIFICATIONS ==================== -->
+  <section id="certifications">
+    <div class="container">
+      <span class="section-label reveal">Credentials</span>
+      <h2 class="section-heading reveal">Certifications</h2>
+      <div class="certs-row">
+
+        <div class="cert-card reveal reveal-delay-1">
+          <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h3 class="cert-title">Python Essential Training</h3>
+          <p class="cert-issuer">LinkedIn Learning</p>
+          <p class="cert-date">Jan 2026</p>
+        </div>
+
+        <div class="cert-card reveal reveal-delay-2">
+          <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h3 class="cert-title">Programming Foundations: Fundamentals</h3>
+          <p class="cert-issuer">LinkedIn Learning</p>
+          <p class="cert-date">Dec 2025</p>
+        </div>
+
+        <div class="cert-card reveal reveal-delay-3">
+          <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h3 class="cert-title">Learning Python</h3>
+          <p class="cert-issuer">LinkedIn Learning</p>
+          <p class="cert-date">Dec 2025</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact">
+    <div class="contact-bg-gradient" aria-hidden="true"></div>
+    <div class="container">
+      <span class="section-label reveal">Reach Out</span>
+      <h2 class="section-heading reveal">Let's Connect</h2>
+      <div class="contact-grid">
+
+        <div class="contact-info reveal reveal-delay-1">
+          <p>
+            Whether you want to discuss AI security research, explore job opportunities, or collaborate on code, feel
+            free to reach out.
+          </p>
+          <a href="mailto:sssathvik300@gmail.com" class="contact-detail" aria-label="Email Sri Sai Sathvik">
+            <i class="fa-solid fa-envelope"></i>
+            <span>sssathvik300@gmail.com</span>
+          </a>
+          <a href="tel:908-342-5865" class="contact-detail" aria-label="Call Sri Sai Sathvik">
+            <i class="fa-solid fa-phone"></i>
+            <span>908-342-5865</span>
+          </a>
+          <div class="contact-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Newark, NJ</span>
+          </div>
+          <div class="contact-socials">
+            <a href="https://linkedin.com/in/sri-sai-sathvik-pidikiti" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/sssathvik300-cyber" target="_blank" rel="noopener noreferrer"
+              aria-label="GitHub profile">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-delay-2" id="contact-form" aria-label="Contact form">
+          <div class="form-group">
+            <label for="form-name">Name</label>
+            <input type="text" id="form-name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="form-email">Email</label>
+            <input type="email" id="form-email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="form-message">Message</label>
+            <textarea id="form-message" name="message" placeholder="Your message…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-content">
+      <p class="footer-text">&copy; 2026 Sri Sai Sathvik Pidikiti &middot; Built with purpose.</p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/sri-sai-sathvik-pidikiti" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/sssathvik300-cyber" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+runtime: python312
+
+handlers:
+  # Static assets — CSS
+  - url: /css
+    static_dir: css
+
+  # Static assets — JavaScript
+  - url: /js
+    static_dir: js
+
+  # Static assets — Images
+  - url: /assets
+    static_dir: assets
+
+  # All other routes → index.html
+  - url: /.*
+    static_files: index.html
+    upload: index.html
