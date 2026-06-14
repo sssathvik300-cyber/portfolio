@@ -924,7 +924,8 @@ section {
   color: var(--accent);
 }
 
-.contact-detail i {
+.contact-detail i,
+.contact-detail .detail-icon {
   width: 40px;
   height: 40px;
   background: rgba(0, 212, 255, 0.06);
@@ -936,6 +937,11 @@ section {
   color: var(--accent);
   font-size: 1rem;
   flex-shrink: 0;
+}
+
+.contact-detail .detail-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .contact-socials {
