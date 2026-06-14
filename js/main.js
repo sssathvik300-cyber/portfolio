@@ -216,19 +216,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Contact Form (front-end only) ----
+  // ---- Contact Form (sends to your Gmail via Web3Forms) ----
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = contactForm.querySelector('.btn');
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
-      btn.style.background = 'linear-gradient(135deg, #00c853, #00897b)';
+      const original = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
+      btn.style.background = '';
+      try {
+        const data = Object.fromEntries(new FormData(contactForm).entries());
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const result = await res.json();
+        if (result.success) {
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+          btn.style.background = 'linear-gradient(135deg, #00c853, #00897b)';
+          contactForm.reset();
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (err) {
+        btn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Failed — try again';
+        btn.style.background = 'linear-gradient(135deg, #e53935, #b71c1c)';
+        console.error('Contact form error:', err);
+      }
       setTimeout(() => {
-        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+        btn.innerHTML = original;
         btn.style.background = '';
-        contactForm.reset();
-      }, 3000);
+        btn.disabled = false;
+      }, 3500);
     });
   }
 
