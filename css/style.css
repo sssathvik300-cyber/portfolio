@@ -81,7 +81,7 @@ a {
   transition: color var(--transition-fast);
 }
 a:hover {
-  color: #66e5ff;
+  color: #ff9c6a;
 }
 
 img {
@@ -223,7 +223,7 @@ section {
 }
 
 .navbar.scrolled {
-  background: rgba(10, 15, 30, 0.92);
+  background: rgba(22, 18, 14, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
@@ -609,7 +609,7 @@ section {
 .project-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, rgba(232, 116, 59, 0.1), rgba(0, 102, 255, 0.1));
+  background: linear-gradient(135deg, rgba(232, 116, 59, 0.1), rgba(199, 90, 40, 0.1));
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -900,7 +900,7 @@ section {
 .contact-bg-gradient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 80%, rgba(0, 102, 255, 0.08) 0%, transparent 60%),
+  background: radial-gradient(ellipse at 30% 80%, rgba(199, 90, 40, 0.08) 0%, transparent 60%),
               radial-gradient(ellipse at 70% 20%, rgba(232, 116, 59, 0.06) 0%, transparent 50%);
   animation: gradient-shift 8s ease-in-out infinite alternate;
   pointer-events: none;
@@ -1130,7 +1130,7 @@ section {
     width: 75%;
     max-width: 320px;
     height: 100vh;
-    background: rgba(10, 15, 30, 0.97);
+    background: rgba(22, 18, 14, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
