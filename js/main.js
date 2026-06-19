@@ -79,20 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.classList.toggle('active');
     navLinksContainer.classList.toggle('open');
     navOverlay.classList.toggle('show');
-    document.body.style.overflow = navLinksContainer.classList.contains('open') ? 'hidden' : '';
+    const isNowOpen = navLinksContainer.classList.contains('open');
+    document.body.style.overflow = isNowOpen ? 'hidden' : '';
+    hamburger.setAttribute('aria-expanded', isNowOpen);
   }
 
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
-
-  // Close menu on link click
-  navLinksContainer.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (navLinksContainer.classList.contains('open')) {
-        toggleMenu();
-      }
-    });
-  });
 
 
   // ---- Scroll Reveal Animations ----
@@ -149,10 +142,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Smooth Scroll for Anchor Links ----
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+      const href = this.getAttribute('href');
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      e.preventDefault();
+
+      const doScroll = () => {
+        const navOffset = navbar ? navbar.offsetHeight : 0;
+        const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      };
+
+      if (navLinksContainer.classList.contains('open')) {
+        toggleMenu();
+        setTimeout(doScroll, 300);
+      } else {
+        doScroll();
       }
     });
   });
