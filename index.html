@@ -8,6 +8,7 @@
   <meta name="description"
     content="CS sophomore at NJIT specializing in AI & Cybersecurity. Explore projects, research, and experience." />
   <meta name="author" content="Sri Sai Sathvik Pidikiti" />
+  <meta name="theme-color" content="#1a1a1a" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -92,7 +93,7 @@
       <div class="hero-visual-content">
         <div class="about-photo-wrapper reveal reveal-delay-1" style="margin-bottom: 40px;">
           <div class="about-photo-ring" aria-hidden="true"></div>
-          <img src="assets/images/profile.jpeg" alt="Sri Sai Sathvik Pidikiti — profile photo" class="about-photo" loading="lazy" />
+          <img src="assets/images/profile.jpeg" alt="Sri Sai Sathvik Pidikiti — profile photo" class="about-photo" fetchpriority="high" width="200" height="200" />
         </div>
         <div class="about-stats" style="justify-content: center;">
           <div class="stat-card reveal reveal-delay-2">
@@ -137,7 +138,7 @@
         <!-- Project: Ember -->
         <div class="project-card reveal reveal-delay-1">
           <div class="project-image" style="width:100%; height:180px; overflow:hidden; border-radius:var(--radius-sm); margin-bottom:20px; border: 1px solid var(--border);">
-            <img src="assets/images/ember-screenshot.png" alt="Ember Platform Screenshot" style="width:100%; height:100%; object-fit:cover; object-position: top center;">
+            <img src="assets/images/ember-screenshot.png" alt="Ember Platform Screenshot" style="width:100%; height:100%; object-fit:cover; object-position: top center;" loading="lazy">
           </div>
           <h3 class="project-title">Ember</h3>
           <p class="project-desc">
@@ -465,7 +466,7 @@
   </button>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>
