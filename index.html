@@ -56,64 +56,62 @@
     </div>
   </nav>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <h1 class="hero-name reveal">Sri Sai Sathvik Pidikiti</h1>
-      <div class="hero-typing-wrapper reveal reveal-delay-1" aria-live="polite">
-        <span id="typing-text"></span><span class="cursor-blink" aria-hidden="true">|</span>
-      </div>
-      <p class="hero-subtitle reveal reveal-delay-2">NJIT Ying Wu College of Computing '29 &nbsp;|&nbsp; Newark, NJ</p>
-      <div class="hero-cta reveal reveal-delay-3">
-        <a href="#projects" class="btn btn-primary">
-          <i class="fa-solid fa-arrow-down"></i> View My Work
-        </a>
-        <a href="https://drive.google.com/file/d/1vIeOtzkkn_dZ9QjyPrtdmQ671uQps-ch/view?usp=sharing"
-          class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-file-lines"></i> View Resume
-        </a>
-      </div>
-    </div>
-    <div class="hero-scroll-indicator" aria-hidden="true">
-      <i class="fa-solid fa-chevron-down"></i>
-    </div>
-  </section>
-
-  <!-- ==================== ABOUT ==================== -->
-  <section id="about">
-    <div class="container">
-      <span class="section-label reveal">Who I Am</span>
-      <h2 class="section-heading reveal">About Me</h2>
-      <div class="about-grid">
-        <div class="about-photo-wrapper reveal reveal-delay-1">
-          <div class="about-photo-ring" aria-hidden="true"></div>
-          <img src="assets/images/profile.jpeg" alt="Sri Sai Sathvik Pidikiti — profile photo" class="about-photo"
-            loading="lazy" />
+  <!-- ==================== HERO / ABOUT ==================== -->
+  <section class="hero" id="about">
+    <div class="container hero-about-grid">
+      
+      <!-- Text Side -->
+      <div class="hero-text-content">
+        <h1 class="hero-name reveal">Sri Sai Sathvik Pidikiti</h1>
+        <div class="hero-typing-wrapper reveal reveal-delay-1" aria-live="polite">
+          <span id="typing-text"></span><span class="cursor-blink" aria-hidden="true">|</span>
         </div>
-        <div class="about-text">
-          <p class="about-bio reveal reveal-delay-2">
-            I'm a CS sophomore at NJIT working where AI meets security. A lot of what I build comes from one
-            preference: things that run locally. My current project is a Chrome extension whose AI tools run fully
-            on-device — nothing leaves your browser. In the SPUR Lab, I'm researching how security and privacy
-            actually get taught in K-12 CS classrooms. And most of my projects started at a hackathon around 2am —
-            I'd rather ship something rough than plan something perfect.
-          </p>
-          <div class="about-stats">
-            <div class="stat-card reveal reveal-delay-2">
-              <span class="stat-number">3.839</span>
-              <span class="stat-label">Cumulative GPA</span>
-            </div>
-            <div class="stat-card reveal reveal-delay-3">
-              <span class="stat-number">2</span>
-              <span class="stat-label">Research Papers</span>
-            </div>
-            <div class="stat-card reveal reveal-delay-4">
-              <span class="stat-number">3</span>
-              <span class="stat-label">Roles @ NJIT</span>
-            </div>
+        <p class="hero-subtitle reveal reveal-delay-2">NJIT Ying Wu College of Computing '29 &nbsp;|&nbsp; Newark, NJ</p>
+        
+        <p class="about-bio reveal reveal-delay-2" style="font-size: 1.05rem; margin-bottom: 40px;">
+          I'm a CS sophomore at NJIT working where AI meets security. A lot of what I build comes from one
+          preference: things that run locally. My current project is a Chrome extension whose AI tools run fully
+          on-device — nothing leaves your browser. In the SPUR Lab, I'm researching how security and privacy
+          actually get taught in K-12 CS classrooms. And most of my projects started at a hackathon around 2am —
+          I'd rather ship something rough than plan something perfect.
+        </p>
+
+        <div class="hero-cta reveal reveal-delay-3">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-down"></i> View My Work
+          </a>
+          <a href="https://drive.google.com/file/d/1vIeOtzkkn_dZ9QjyPrtdmQ671uQps-ch/view?usp=sharing"
+            class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-file-lines"></i> View Resume
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual Side -->
+      <div class="hero-visual-content">
+        <div class="about-photo-wrapper reveal reveal-delay-1" style="margin-bottom: 40px;">
+          <div class="about-photo-ring" aria-hidden="true"></div>
+          <img src="assets/images/profile.jpeg" alt="Sri Sai Sathvik Pidikiti — profile photo" class="about-photo" loading="lazy" />
+        </div>
+        <div class="about-stats" style="justify-content: center;">
+          <div class="stat-card reveal reveal-delay-2">
+            <span class="stat-number">3.839</span>
+            <span class="stat-label">Cumulative GPA</span>
+          </div>
+          <div class="stat-card reveal reveal-delay-3">
+            <span class="stat-number">2</span>
+            <span class="stat-label">Research Papers</span>
+          </div>
+          <div class="stat-card reveal reveal-delay-4">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Roles @ NJIT</span>
           </div>
         </div>
       </div>
+
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true" style="bottom: 20px;">
+      <i class="fa-solid fa-chevron-down"></i>
     </div>
   </section>
 
@@ -404,15 +402,13 @@
     </div>
   </section>
 
-  <!-- ==================== CONTACT ==================== -->
-  <section id="contact">
-    <div class="contact-bg-gradient" aria-hidden="true"></div>
+  <!-- ==================== CONTACT / FOOTER ==================== -->
+  <footer id="contact" class="footer" role="contentinfo" style="padding-top: 80px;">
     <div class="container">
-      <span class="section-label reveal">Reach Out</span>
-      <h2 class="section-heading reveal">Let's Connect</h2>
-      <div class="contact-grid">
+      <div class="contact-grid" style="margin-bottom: 60px;">
 
         <div class="contact-info reveal reveal-delay-1">
+          <h2 class="section-heading" style="margin-bottom: 20px;">Let's Connect</h2>
           <p>
             Working on something in AI or security and want another set of hands? Or just want to compare notes on a
             project? The form below goes straight to my inbox — I read every message.
@@ -432,10 +428,10 @@
         </div>
 
         <form class="contact-form reveal reveal-delay-2" id="contact-form" aria-label="Contact form">
-<input type="hidden" name="access_key" value="0e320e6a-8e34-4cac-b581-0b0aa27e975f" />
-<input type="hidden" name="subject" value="New message from your portfolio site" />
-<input type="hidden" name="from_name" value="Portfolio Contact Form" />
-<input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="access_key" value="0e320e6a-8e34-4cac-b581-0b0aa27e975f" />
+          <input type="hidden" name="subject" value="New message from your portfolio site" />
+          <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="form-group">
             <label for="form-name">Name</label>
             <input type="text" id="form-name" name="name" placeholder="Your name" required />
@@ -454,21 +450,18 @@
         </form>
 
       </div>
-    </div>
-  </section>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="footer" role="contentinfo">
-    <div class="container footer-content">
-      <p class="footer-text">&copy; 2026 Sri Sai Sathvik Pidikiti &middot; Built from scratch, no template.</p>
-      <div class="footer-socials">
-        <a href="https://linkedin.com/in/sri-sai-sathvik-pidikiti" target="_blank" rel="noopener noreferrer"
-          aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/sssathvik300-cyber" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
+      <div class="footer-content" style="border-top: 1px solid var(--border); padding-top: 30px;">
+        <p class="footer-text">&copy; 2026 Sri Sai Sathvik Pidikiti &middot; Built from scratch, no template.</p>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/sri-sai-sathvik-pidikiti" target="_blank" rel="noopener noreferrer"
+            aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/sssathvik300-cyber" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
