@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScroll();
 
   // ---- Active Nav Link on Scroll ----
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], footer[id]');
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
   function highlightNav() {
@@ -87,12 +87,24 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // Close menu when a link is clicked
-  const mobileNavLinks = document.querySelectorAll('.nav-links a');
-  mobileNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
+  // ---- Smooth Scroll for Anchor Links ----
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      e.preventDefault();
+
+      const doScroll = () => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      };
+
       if (navLinksContainer.classList.contains('open')) {
         toggleMenu();
+        setTimeout(doScroll, 300);
+      } else {
+        doScroll();
       }
     });
   });
