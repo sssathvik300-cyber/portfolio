@@ -6,11 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Custom Cursor ----
   const cursorDot = document.querySelector('.cursor-dot');
-  const cursorRing = document.querySelector('.cursor-ring');
 
-  if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
+  if (cursorDot && window.matchMedia('(pointer: fine)').matches) {
     let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
 
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
@@ -18,15 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cursorDot.style.left = mouseX + 'px';
       cursorDot.style.top = mouseY + 'px';
     });
-
-    function animateRing() {
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
-      cursorRing.style.left = ringX + 'px';
-      cursorRing.style.top = ringY + 'px';
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
 
     // Hover effect on interactive elements
     const hoverTargets = document.querySelectorAll('a, button, .btn, .project-card, .stat-card, .cert-card, .skill-tag');
