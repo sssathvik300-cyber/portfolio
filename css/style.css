@@ -576,6 +576,33 @@ section {
   text-transform: uppercase;
 }
 
+.hero-socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.hero-socials a {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  transition: var(--transition);
+}
+
+.hero-socials a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(232, 116, 59, 0.06);
+  transform: translateY(-3px);
+}
+
 /* ============================================================
    PROJECTS
    ============================================================ */
