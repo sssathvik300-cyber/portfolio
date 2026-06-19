@@ -149,29 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   skillGroups.forEach(group => skillObserver.observe(group));
 
-  // ---- Smooth Scroll for Anchor Links ----
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      const target = document.querySelector(href);
-      if (!target) return;
 
-      e.preventDefault();
-
-      const doScroll = () => {
-        const navOffset = navbar ? navbar.offsetHeight : 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      };
-
-      if (navLinksContainer.classList.contains('open')) {
-        toggleMenu();
-        setTimeout(doScroll, 300);
-      } else {
-        doScroll();
-      }
-    });
-  });
 
   // ---- Back to Top ----
   if (backToTop) {

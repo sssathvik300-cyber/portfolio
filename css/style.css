@@ -41,7 +41,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 10px;
+  scroll-padding-top: var(--nav-height);
   font-size: 16px;
 }
 
@@ -131,7 +131,6 @@ ul {
 section {
   padding: var(--section-padding);
   position: relative;
-  scroll-margin-top: calc(var(--nav-height) + 20px);
 }
 
 .section-label {
