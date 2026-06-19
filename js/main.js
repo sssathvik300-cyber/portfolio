@@ -87,6 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
+  // Close menu when a link is clicked
+  const mobileNavLinks = document.querySelectorAll('.nav-links a');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinksContainer.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
+  });
+
 
   // ---- Scroll Reveal Animations ----
   const revealElements = document.querySelectorAll('.reveal');
