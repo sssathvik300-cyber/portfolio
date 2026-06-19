@@ -355,7 +355,7 @@ section {
 
 .hero-about-grid {
   display: grid;
-  grid-template-columns: 1fr 340px;
+  grid-template-columns: 340px 1fr;
   gap: 60px;
   align-items: center;
   position: relative;
@@ -368,12 +368,14 @@ section {
 
 .hero-text-content {
   text-align: left;
+  order: 2;
 }
 
 .hero-visual-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  order: 1;
 }
 
 .hero-name {
@@ -1168,6 +1170,10 @@ section {
   }
   .hero-text-content {
     text-align: center;
+    order: 1;
+  }
+  .hero-visual-content {
+    order: 2;
   }
   .about-bio {
     text-align: center !important;
