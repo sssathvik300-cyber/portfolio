@@ -907,6 +907,7 @@ section {
   gap: 60px;
   position: relative;
   z-index: 1;
+  text-align: left;
 }
 
 .contact-info p {
