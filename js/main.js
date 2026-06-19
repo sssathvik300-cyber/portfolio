@@ -105,47 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---- Typing Animation ----
-  const typingElement = document.getElementById('typing-text');
-  const phrases = [
-    'I build AI that runs on-device',
-    'security + AI, mostly at 2am',
-    'CS sophomore @ NJIT',
-    'I ship first, then refine'
-  ];
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 80;
-
-  function typeEffect() {
-    const currentPhrase = phrases[phraseIndex];
-
-    if (isDeleting) {
-      typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
-      charIndex--;
-      typingSpeed = 40;
-    } else {
-      typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-      charIndex++;
-      typingSpeed = 80;
-    }
-
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      typingSpeed = 2000; // Pause at end
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      typingSpeed = 400; // Pause before next phrase
-    }
-
-    setTimeout(typeEffect, typingSpeed);
-  }
-
-  if (typingElement) {
-    setTimeout(typeEffect, 600);
-  }
 
   // ---- Scroll Reveal Animations ----
   const revealElements = document.querySelectorAll('.reveal');
