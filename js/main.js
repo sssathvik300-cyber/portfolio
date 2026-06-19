@@ -228,13 +228,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.style.background = '';
       try {
         const data = Object.fromEntries(new FormData(contactForm).entries());
-        const res = await fetch('https://api.web3forms.com/submit', {
+        const res = await fetch('https://formsubmit.co/ajax/sathvikp2928@gmail.com', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify(data),
         });
         const result = await res.json();
-        if (result.success) {
+        if (result.success === "true" || result.success === true) {
           btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
           btn.style.background = 'linear-gradient(135deg, #00c853, #00897b)';
           contactForm.reset();
