@@ -87,25 +87,25 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   navOverlay.addEventListener('click', toggleMenu);
 
-  // ---- Smooth Scroll for Anchor Links ----
+  // ---- Navigation Links Handling ----
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
-      const target = document.querySelector(href);
-      if (!target) return;
-
-      e.preventDefault();
-
-      const doScroll = () => {
-        target.scrollIntoView({ behavior: 'smooth' });
-      };
-
+      
+      // If mobile menu is open, handle the race condition
       if (navLinksContainer.classList.contains('open')) {
-        toggleMenu();
-        setTimeout(doScroll, 300);
-      } else {
-        doScroll();
+        e.preventDefault(); // Stop native jump because body overflow is hidden
+        toggleMenu(); // Closes menu and removes overflow: hidden
+        
+        // Wait for menu to fade out and layout to reflow
+        setTimeout(() => {
+          // Setting the hash triggers native CSS scroll-behavior: smooth natively!
+          // This avoids the iOS Safari bug where JS smooth scrolling fails in timeouts.
+          window.location.hash = href;
+        }, 350);
       }
+      // If desktop, we don't prevent default. The browser natively follows the href
+      // and triggers the flawless CSS smooth scrolling automatically.
     });
   });
 
