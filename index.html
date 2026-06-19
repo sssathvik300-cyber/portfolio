@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
 
   <!-- Font Awesome 6.4.0 -->
@@ -58,7 +58,6 @@
 
   <!-- ==================== HERO ==================== -->
   <section class="hero" id="hero">
-    <canvas id="particles-canvas" aria-hidden="true"></canvas>
     <div class="hero-content">
       <h1 class="hero-name reveal">Sri Sai Sathvik Pidikiti</h1>
       <div class="hero-typing-wrapper reveal reveal-delay-1" aria-live="polite">
@@ -93,9 +92,11 @@
         </div>
         <div class="about-text">
           <p class="about-bio reveal reveal-delay-2">
-            I'm a Computer Science student at NJIT's Ying Wu College of Computing (GPA: 3.839), passionate about the
-            intersection of Artificial Intelligence and Cybersecurity — from LLM-powered threat detection to the ethics
-            of secure model deployment. I build things, research things, and connect the two.
+            I'm a CS sophomore at NJIT working where AI meets security. A lot of what I build comes from one
+            preference: things that run locally. My current project is a Chrome extension whose AI tools run fully
+            on-device — nothing leaves your browser. In the SPUR Lab, I'm researching how security and privacy
+            actually get taught in K-12 CS classrooms. And most of my projects started at a hackathon around 2am —
+            I'd rather ship something rough than plan something perfect.
           </p>
           <div class="about-stats">
             <div class="stat-card reveal reveal-delay-2">
@@ -143,7 +144,7 @@
 
         <!-- Project 1: Flamingo -->
         <div class="project-card reveal reveal-delay-2">
-          <div class="project-icon"><i class="fa-solid fa-paper-plane"></i></div>
+          <div class="project-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12 2a1 1 0 0 1 1 1v1h3a3 3 0 0 1 3 3v2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-1H4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V7a3 3 0 0 1 3-3h3V3a1 1 0 0 1 1-1zM9 11a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></div>
           <h3 class="project-title">Flamingo</h3>
           <p class="project-desc">
             Full-stack AI system that automates job applications using local LLM inference for resume parsing and
@@ -163,7 +164,7 @@
 
         <!-- Project 2: Portfolio -->
         <div class="project-card reveal reveal-delay-3">
-          <div class="project-icon"><i class="fa-solid fa-code"></i></div>
+          <div class="project-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8.7 15.9 4.8 12l3.9-3.9a1 1 0 1 0-1.4-1.4l-4.6 4.6a1 1 0 0 0 0 1.4l4.6 4.6a1 1 0 0 0 1.4-1.4zm6.6 0 3.9-3.9-3.9-3.9a1 1 0 1 1 1.4-1.4l4.6 4.6a1 1 0 0 1 0 1.4l-4.6 4.6a1 1 0 0 1-1.4-1.4z"/></svg></div>
           <h3 class="project-title">Personal Portfolio</h3>
           <p class="project-desc">
             This site — designed and built from scratch with clean UI, responsive layout, and fast load performance.
@@ -413,8 +414,8 @@
 
         <div class="contact-info reveal reveal-delay-1">
           <p>
-            Whether you want to discuss AI security research, explore job opportunities, or collaborate on code, feel
-            free to reach out.
+            Working on something in AI or security and want another set of hands? Or just want to compare notes on a
+            project? The form below goes straight to my inbox — I read every message.
           </p>
           <div class="contact-detail">
             <span class="detail-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></span>
@@ -459,7 +460,7 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer" role="contentinfo">
     <div class="container footer-content">
-      <p class="footer-text">&copy; 2026 Sri Sai Sathvik Pidikiti &middot; Built with purpose.</p>
+      <p class="footer-text">&copy; 2026 Sri Sai Sathvik Pidikiti &middot; Built from scratch, no template.</p>
       <div class="footer-socials">
         <a href="https://linkedin.com/in/sri-sai-sathvik-pidikiti" target="_blank" rel="noopener noreferrer"
           aria-label="LinkedIn">
@@ -478,7 +479,6 @@
   </button>
 
   <!-- Scripts -->
-  <script src="js/particles.js"></script>
   <script src="js/main.js"></script>
 </body>
 

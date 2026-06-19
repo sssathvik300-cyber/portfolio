@@ -108,10 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Typing Animation ----
   const typingElement = document.getElementById('typing-text');
   const phrases = [
-    'CS Student',
-    'AI Researcher',
-    'Cybersecurity Enthusiast',
-    'Builder'
+    'I build AI that runs on-device',
+    'security + AI, mostly at 2am',
+    'CS sophomore @ NJIT',
+    'I ship first, then refine'
   ];
   let phraseIndex = 0;
   let charIndex = 0;

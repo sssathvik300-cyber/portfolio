@@ -5,20 +5,20 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  --bg-primary: #0a0f1e;
-  --bg-secondary: #0d1427;
-  --bg-card: #111a33;
-  --bg-card-hover: #152040;
-  --accent: #00d4ff;
-  --accent-deep: #0066ff;
-  --accent-glow: rgba(0, 212, 255, 0.25);
-  --accent-glow-strong: rgba(0, 212, 255, 0.45);
-  --text-primary: #e8ecf4;
-  --text-secondary: #8892a8;
-  --text-muted: #5a6478;
-  --border: rgba(255, 255, 255, 0.06);
-  --border-hover: rgba(0, 212, 255, 0.35);
-  --font-heading: 'Syne', sans-serif;
+  --bg-primary: #100E0C;
+  --bg-secondary: #16120E;
+  --bg-card: #1C1713;
+  --bg-card-hover: #241D17;
+  --accent: #E8743B;
+  --accent-deep: #C75A28;
+  --accent-glow: rgba(0, 0, 0, 0.35);
+  --accent-glow-strong: rgba(232, 116, 59, 0.14);
+  --text-primary: #F4EFE8;
+  --text-secondary: #A89E92;
+  --text-muted: #6F665C;
+  --border: rgba(255, 240, 220, 0.07);
+  --border-hover: rgba(232, 116, 59, 0.4);
+  --font-heading: 'Fraunces', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-body: 'Inter', sans-serif;
   --nav-height: 72px;
@@ -157,10 +157,11 @@ section {
 }
 
 .section-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--accent);
   margin-bottom: 12px;
   display: block;
@@ -169,7 +170,8 @@ section {
 .section-heading {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   margin-bottom: 60px;
   position: relative;
@@ -327,12 +329,28 @@ section {
 }
 
 #particles-canvas {
+  display: none;
+}
+
+.hero {
+  background:
+    radial-gradient(60% 50% at 50% 38%, rgba(232, 116, 59, 0.10), transparent 70%),
+    linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+  background-color: var(--bg-primary);
+}
+
+.hero::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 240, 220, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 240, 220, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 45%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(70% 60% at 50% 45%, #000 30%, transparent 78%);
 }
 
 .hero-content {
@@ -345,14 +363,12 @@ section {
 
 .hero-name {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.1;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 .hero-typing-wrapper {
@@ -426,7 +442,7 @@ section {
 }
 
 .btn-outline:hover {
-  background: rgba(0, 212, 255, 0.08);
+  background: rgba(232, 116, 59, 0.08);
   transform: translateY(-3px);
   box-shadow: 0 8px 30px var(--accent-glow);
   color: var(--accent);
@@ -528,7 +544,7 @@ section {
 .stat-card:hover {
   border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(232, 116, 59, 0.08);
 }
 
 .stat-number {
@@ -554,8 +570,8 @@ section {
    ============================================================ */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  gap: 24px;
 }
 
 .project-card {
@@ -583,7 +599,7 @@ section {
 .project-card:hover {
   transform: translateY(-6px);
   border-color: var(--border-hover);
-  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(232, 116, 59, 0.1);
 }
 
 .project-card:hover::before {
@@ -593,7 +609,7 @@ section {
 .project-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 102, 255, 0.1));
+  background: linear-gradient(135deg, rgba(232, 116, 59, 0.1), rgba(0, 102, 255, 0.1));
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -628,8 +644,8 @@ section {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   padding: 5px 12px;
-  background: rgba(0, 212, 255, 0.06);
-  border: 1px solid rgba(0, 212, 255, 0.12);
+  background: rgba(232, 116, 59, 0.06);
+  border: 1px solid rgba(232, 116, 59, 0.12);
   border-radius: 50px;
   color: var(--accent);
   letter-spacing: 0.3px;
@@ -802,8 +818,8 @@ section {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   padding: 8px 18px;
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  background: rgba(232, 116, 59, 0.05);
+  border: 1px solid rgba(232, 116, 59, 0.1);
   border-radius: 50px;
   color: var(--text-secondary);
   transition: var(--transition);
@@ -819,7 +835,7 @@ section {
 .skill-tag:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(232, 116, 59, 0.1);
   transform: translateY(-2px);
 }
 
@@ -844,7 +860,7 @@ section {
 .cert-card:hover {
   border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(232, 116, 59, 0.08);
 }
 
 .cert-icon {
@@ -885,7 +901,7 @@ section {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 30% 80%, rgba(0, 102, 255, 0.08) 0%, transparent 60%),
-              radial-gradient(ellipse at 70% 20%, rgba(0, 212, 255, 0.06) 0%, transparent 50%);
+              radial-gradient(ellipse at 70% 20%, rgba(232, 116, 59, 0.06) 0%, transparent 50%);
   animation: gradient-shift 8s ease-in-out infinite alternate;
   pointer-events: none;
 }
@@ -928,8 +944,8 @@ section {
 .contact-detail .detail-icon {
   width: 40px;
   height: 40px;
-  background: rgba(0, 212, 255, 0.06);
-  border: 1px solid rgba(0, 212, 255, 0.12);
+  background: rgba(232, 116, 59, 0.06);
+  border: 1px solid rgba(232, 116, 59, 0.12);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -966,7 +982,7 @@ section {
 .contact-socials a:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(0, 212, 255, 0.06);
+  background: rgba(232, 116, 59, 0.06);
   transform: translateY(-3px);
 }
 
@@ -1003,7 +1019,7 @@ section {
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  box-shadow: 0 0 0 3px rgba(232, 116, 59, 0.28);
 }
 
 .form-group textarea {
