@@ -1275,6 +1275,51 @@ section {
   }
 }
 
+.chat-toggle-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.chat-tooltip {
+  position: absolute;
+  right: calc(100% + 15px);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.chat-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--border);
+}
+
+.chat-toggle-wrapper:hover .chat-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.chat-window:not(.hidden) ~ .chat-toggle-wrapper .chat-tooltip {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
 .chat-toggle-btn {
   width: 50px;
   height: 50px;

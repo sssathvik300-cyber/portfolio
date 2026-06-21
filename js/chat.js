@@ -22,9 +22,12 @@ const chatWidgetHTML = `
         </button>
       </form>
     </div>
-    <button id="chat-toggle-btn" class="chat-toggle-btn" aria-label="Open Chat">
-      <i class="fa-solid fa-message"></i>
-    </button>
+    <div class="chat-toggle-wrapper">
+      <div class="chat-tooltip">Want to know more about me?</div>
+      <button id="chat-toggle-btn" class="chat-toggle-btn" aria-label="Open Chat">
+        <i class="fa-solid fa-message"></i>
+      </button>
+    </div>
   </div>
 `;
 
