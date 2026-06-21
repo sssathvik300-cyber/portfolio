@@ -114,7 +114,8 @@ chatForm.addEventListener('submit', async (e) => {
       if (response.status === 500 && errorData.error && errorData.error.includes("API key not configured")) {
            appendMessage("Backend is ready! Waiting for the site owner to configure the GEMINI_API_KEY in Cloudflare Pages.", 'bot error');
       } else {
-           appendMessage("Oops, I encountered a temporary error. Please try again later.", 'bot error');
+           const detailedError = errorData.error || `HTTP ${response.status} ${response.statusText}`;
+           appendMessage(`Backend Error: ${detailedError}`, 'bot error');
       }
       return;
     }
