@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Navigation Links Handling ----
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    const handler = function (e) {
       const href = this.getAttribute('href');
       
       // If mobile menu is open, handle the race condition
@@ -106,7 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       // If desktop, we don't prevent default. The browser natively follows the href
       // and triggers the flawless CSS smooth scrolling automatically.
-    });
+    };
+
+    anchor.addEventListener('click', handler);
+    anchor.addEventListener('touchend', handler, { passive: false });
   });
 
 

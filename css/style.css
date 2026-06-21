@@ -1504,3 +1504,53 @@ section {
   0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
   40% { transform: translateY(-4px); opacity: 1; }
 }
+
+ / *   = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+       M O B I L E   F I X E S 
+       = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =   * / 
+ / *   1 .   C a n v a s   p o i n t e r   e v e n t s   * / 
+ c a n v a s ,   # p a r t i c l e s - c a n v a s   { 
+     p o i n t e r - e v e n t s :   n o n e ; 
+ } 
+ 
+ / *   2 .   N a v   o v e r l a y   p o i n t e r   e v e n t s   * / 
+ . n a v - o v e r l a y   { 
+     p o i n t e r - e v e n t s :   n o n e ; 
+ } 
+ . n a v - o v e r l a y . s h o w ,   . n a v - o v e r l a y . a c t i v e ,   . n a v - o v e r l a y . o p e n   { 
+     p o i n t e r - e v e n t s :   a u t o ; 
+ } 
+ 
+ / *   3 .   S t a t   c a r d   c l i c k s   * / 
+ a . s t a t - c a r d   { 
+     p o i n t e r - e v e n t s :   a u t o   ! i m p o r t a n t ; 
+ } 
+ 
+ / *   6 .   F o r m   i n p u t   t o u c h   a c t i o n   * / 
+ . c o n t a c t - f o r m   i n p u t , 
+ . c o n t a c t - f o r m   t e x t a r e a   { 
+     - w e b k i t - u s e r - s e l e c t :   t e x t ; 
+     u s e r - s e l e c t :   t e x t ; 
+     t o u c h - a c t i o n :   m a n i p u l a t i o n ; 
+ } 
+ 
+ @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )   { 
+     / *   4 .   S t a t   c a r d s   a b o v e   c a n v a s   * / 
+     . a b o u t - s t a t s   { 
+         p o s i t i o n :   r e l a t i v e ; 
+         z - i n d e x :   5 ; 
+     } 
+     
+     / *   5 .   C o n t a c t   f o r m   a b o v e   c a n v a s   * / 
+     . c o n t a c t - f o r m ,   . c o n t a c t - f o r m   i n p u t ,   . c o n t a c t - f o r m   t e x t a r e a ,   # c o n t a c t   { 
+         p o s i t i o n :   r e l a t i v e ; 
+         z - i n d e x :   1 0 ; 
+     } 
+     
+     / *   7 .   B a c k - t o - t o p   c l e a r s   c h a t   w i d g e t   * / 
+     . b a c k - t o - t o p   { 
+         b o t t o m :   8 0 p x ; 
+     } 
+ } 
+  
+ 
