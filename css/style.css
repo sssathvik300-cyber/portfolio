@@ -1254,3 +1254,208 @@ section {
     font-size: 1.8rem;
   }
 }
+
+/* ============================================================
+   CHAT WIDGET
+   ============================================================ */
+.chat-widget-container {
+  position: fixed;
+  bottom: 80px; /* Above the back-to-top button */
+  right: 30px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .chat-widget-container {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+.chat-toggle-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(232, 116, 59, 0.4);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-toggle-btn:hover {
+  transform: scale(1.1);
+  background: var(--accent-deep);
+}
+
+.chat-window {
+  width: 340px;
+  height: 450px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform-origin: bottom right;
+}
+
+@media (max-width: 480px) {
+  .chat-window {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+.chat-window.hidden {
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  pointer-events: none;
+}
+
+.chat-window.fade-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.chat-header {
+  background: var(--bg-secondary);
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-title {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-title i {
+  color: var(--accent);
+}
+
+.chat-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color var(--transition-fast);
+}
+
+.chat-close-btn:hover {
+  color: var(--text-primary);
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-message {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.chat-message.bot {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-message.user {
+  background: var(--accent);
+  color: var(--bg-primary);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-message.error {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.chat-input-area {
+  padding: 15px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+}
+
+#chat-input {
+  flex: 1;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 15px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+#chat-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.chat-send-btn {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.chat-send-btn:hover {
+  transform: scale(1.1);
+}
+
+.typing-indicator span {
+  display: inline-block;
+  animation: typing 1.4s infinite ease-in-out both;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}
