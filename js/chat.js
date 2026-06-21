@@ -63,10 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function appendMessage(text, sender) {
     const msgDiv = document.createElement('div');
-    msgDiv.className = \`chat-message \${sender}\`;
+    msgDiv.className = `chat-message ${sender}`;
     
     // Simple markdown link parser (if Gemini returns links)
-    let formattedText = text.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
+    let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     
     msgDiv.innerHTML = formattedText;
     chatMessages.appendChild(msgDiv);
