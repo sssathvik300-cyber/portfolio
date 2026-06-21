@@ -22,7 +22,7 @@ const chatWidgetHTML = `
         </button>
       </form>
     </div>
-    <button id="chat-toggle-btn" class="chat-toggle-btn reveal reveal-delay-5" aria-label="Open Chat">
+    <button id="chat-toggle-btn" class="chat-toggle-btn" aria-label="Open Chat">
       <i class="fa-solid fa-message"></i>
     </button>
   </div>
@@ -42,6 +42,7 @@ const chatMessages = document.getElementById('chat-messages');
 const chatIcon = chatToggleBtn.querySelector('i');
 
 let isChatOpen = false;
+const conversationHistory = [];
 
 function toggleChat() {
   isChatOpen = !isChatOpen;
@@ -94,15 +95,16 @@ chatForm.addEventListener('submit', async (e) => {
   if (!userText) return;
 
   appendMessage(userText, 'user');
+  conversationHistory.push({ role: 'user', content: userText });
   chatInput.value = '';
-  
+
   appendTypingIndicator();
 
   try {
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userText })
+      body: JSON.stringify({ message: userText, history: conversationHistory.slice(-10) })
     });
 
     removeTypingIndicator();
@@ -118,6 +120,7 @@ chatForm.addEventListener('submit', async (e) => {
     }
 
     const data = await response.json();
+    conversationHistory.push({ role: 'assistant', content: data.reply });
     appendMessage(data.reply, 'bot');
 
   } catch (error) {
