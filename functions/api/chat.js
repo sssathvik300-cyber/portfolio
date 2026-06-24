@@ -1,29 +1,34 @@
-const PRIMARY_MODEL = 'gemini-2.5-flash';
-const FALLBACK_MODEL = 'gemini-2.5-flash-lite';
+// Models are tried in order. Edit this list if Google deprecates one.
+const MODELS = ['gemini-2.5-flash', 'gemini-2.5-flash-lite'];
 
 async function callGemini(model, body, apiKey) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-  const res = await fetch(url, {
+  return fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   });
-  return res;
 }
 
-async function callWithRetry(geminiBody, apiKey) {
-  const retryStatuses = [429, 503];
-  for (let attempt = 0; attempt < 3; attempt++) {
-    const res = await callGemini(PRIMARY_MODEL, geminiBody, apiKey);
-    if (res.ok) return res;
-    if (res.status === 404) break; // Fallback immediately if model is deprecated
-    if (!retryStatuses.includes(res.status)) throw new Error(`Gemini ${res.status}: ${await res.text()}`);
-    await new Promise(r => setTimeout(r, 500 * Math.pow(2, attempt)));
+// Try each model in order. For transient overloads (429/503), retry the same
+// model a few times with exponential backoff before moving to the next model.
+async function callWithFallback(geminiBody, apiKey) {
+  const transient = [429, 503];
+  let lastStatus = 0;
+  for (const model of MODELS) {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const res = await callGemini(model, geminiBody, apiKey);
+      if (res.ok) return res;
+      lastStatus = res.status;
+      // 404 (model gone) or any non-transient error: stop retrying this model, try the next.
+      if (res.status === 404 || !transient.includes(res.status)) break;
+      // Transient overload: wait, then retry the same model.
+      await new Promise(r => setTimeout(r, 600 * Math.pow(2, attempt)));
+    }
   }
-  // Fallback
-  const fallbackRes = await callGemini(FALLBACK_MODEL, geminiBody, apiKey);
-  if (fallbackRes.ok) return fallbackRes;
-  throw new Error(`Fallback failed: ${fallbackRes.status}: ${await fallbackRes.text()}`);
+  const err = new Error(`All models unavailable (last status ${lastStatus})`);
+  err.overloaded = transient.includes(lastStatus);
+  throw err;
 }
 
 export async function onRequestPost(context) {
@@ -112,10 +117,11 @@ If asked something not covered above, politely say you don't know and suggest co
       generationConfig: { maxOutputTokens: 512, temperature: 0.7 }
     };
 
-    const response = await callWithRetry(geminiRequestBody, apiKey);
+    const response = await callWithFallback(geminiRequestBody, apiKey);
 
     const data = await response.json();
-    const reply = data.candidates[0].content.parts[0].text;
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!reply) throw new Error('Empty response from model');
 
     return new Response(JSON.stringify({ reply }), {
       headers: { "Content-Type": "application/json" },
@@ -123,7 +129,14 @@ If asked something not covered above, politely say you don't know and suggest co
     });
 
   } catch (error) {
-    console.error("Internal Server Error:", error);
+    console.error("Chatbot error:", error);
+    // When models are just overloaded, show a friendly chat message instead of a
+    // raw error, and return 200 so the UI renders it as a normal reply.
+    if (error.overloaded) {
+      return new Response(JSON.stringify({
+        reply: "I'm getting a lot of requests right now and couldn't think straight — please try again in a moment."
+      }), { headers: { "Content-Type": "application/json" }, status: 200 });
+    }
     return new Response(JSON.stringify({ error: error.message }), { status: 500 });
   }
 }
