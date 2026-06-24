@@ -1273,6 +1273,8 @@ section {
   .chat-widget-container {
     bottom: 20px;
     right: 20px;
+    width: auto;
+    max-width: fit-content;
   }
 }
 

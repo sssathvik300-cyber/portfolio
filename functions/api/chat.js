@@ -1,3 +1,30 @@
+const PRIMARY_MODEL = 'gemini-2.0-flash';
+const FALLBACK_MODEL = 'gemini-1.5-flash-8b';
+
+async function callGemini(model, body, apiKey) {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  return res;
+}
+
+async function callWithRetry(geminiBody, apiKey) {
+  const retryStatuses = [429, 503];
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const res = await callGemini(PRIMARY_MODEL, geminiBody, apiKey);
+    if (res.ok) return res;
+    if (!retryStatuses.includes(res.status)) throw new Error(`Gemini ${res.status}: ${await res.text()}`);
+    await new Promise(r => setTimeout(r, 500 * Math.pow(2, attempt)));
+  }
+  // Fallback
+  const fallbackRes = await callGemini(FALLBACK_MODEL, geminiBody, apiKey);
+  if (fallbackRes.ok) return fallbackRes;
+  throw new Error(`Fallback failed: ${fallbackRes.status}: ${await fallbackRes.text()}`);
+}
+
 export async function onRequestPost(context) {
   try {
     const { request, env } = context;
@@ -84,19 +111,7 @@ If asked something not covered above, politely say you don't know and suggest co
       generationConfig: { maxOutputTokens: 512, temperature: 0.7 }
     };
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(geminiRequestBody)
-    });
-
-    if (!response.ok) {
-        const errText = await response.text();
-        console.error(`Gemini API Error (${response.status}): ${errText}`);
-        throw new Error(`Gemini API Error (${response.status}): ${errText}`);
-    }
+    const response = await callWithRetry(geminiRequestBody, apiKey);
 
     const data = await response.json();
     const reply = data.candidates[0].content.parts[0].text;
