@@ -1,5 +1,5 @@
-const PRIMARY_MODEL = 'gemini-2.0-flash';
-const FALLBACK_MODEL = 'gemini-1.5-flash-8b';
+const PRIMARY_MODEL = 'gemini-2.5-flash';
+const FALLBACK_MODEL = 'gemini-2.5-flash-lite';
 
 async function callGemini(model, body, apiKey) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
@@ -16,6 +16,7 @@ async function callWithRetry(geminiBody, apiKey) {
   for (let attempt = 0; attempt < 3; attempt++) {
     const res = await callGemini(PRIMARY_MODEL, geminiBody, apiKey);
     if (res.ok) return res;
+    if (res.status === 404) break; // Fallback immediately if model is deprecated
     if (!retryStatuses.includes(res.status)) throw new Error(`Gemini ${res.status}: ${await res.text()}`);
     await new Promise(r => setTimeout(r, 500 * Math.pow(2, attempt)));
   }
