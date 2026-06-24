@@ -26,6 +26,7 @@ export const PROFILE = {
   ],
 
   roles: [
+    "Teaching Assistant — NJIT Center for Pre-College Programs: supported STEM instruction (math, CS, engineering, communications) for grades 4–11; mentored and supervised groups of up to 24 students across classes, campus events, and field trips, with one-on-one and small-group academic support.",
     "Research Assistant — NJIT SPUR Lab (May 2026–Present), with Prof. Nathan Malkin: built a full Python extraction pipeline pulling 128,442+ security/privacy standards from 420+ state PDFs across 44 states into structured, ML-ready datasets; analyzes and classifies K-12 security/privacy teaching standards using a structured taxonomy and SQLite to support an academic publication.",
     "Special Event Technician — NJIT Media Technology Support Services (May 2026–Present): runs audio mixing consoles, wireless mics, projection, and video conferencing across 50+ campus events (30 to 1,500+ attendees), troubleshooting live to keep events on schedule.",
     "Mailroom Assistant — NJIT University Operations (Jan 2026–Present): rated Outstanding (top 5%) for Independence & Communication Skills; processes 60–70+ packages daily.",
