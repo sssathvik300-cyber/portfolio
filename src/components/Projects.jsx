@@ -65,10 +65,10 @@ const Projects = () => {
             </p>
             <p className="project-desc" style={{fontSize: '0.85rem', marginBottom: '15px', color: 'var(--text-muted)'}}>
               <strong>Contributors:</strong> 
-              <a href="https://www.linkedin.com/in/advik-yadav-b162902a9/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>Advik</a>, 
-              <a href="https://www.linkedin.com/in/srivamsirajesh/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>Vamsi</a>, 
-              <a href="https://www.linkedin.com/in/faizanshaikh-ai/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>Faizan</a>, 
-              <a href="https://www.linkedin.com/in/ptlkrishh/" target="_blank" rel="noopener noreferrer" style={{color: 'var(--text)'}}>Krish</a>
+              <a href="https://www.linkedin.com/in/advik-yadav-b162902a9/" target="_blank" rel="noopener noreferrer" className="collab-link">Advik</a>, 
+              <a href="https://www.linkedin.com/in/srivamsirajesh/" target="_blank" rel="noopener noreferrer" className="collab-link">Vamsi</a>, 
+              <a href="https://www.linkedin.com/in/faizanshaikh-ai/" target="_blank" rel="noopener noreferrer" className="collab-link">Faizan</a>, 
+              <a href="https://www.linkedin.com/in/ptlkrishh/" target="_blank" rel="noopener noreferrer" className="collab-link">Krish</a>
             </p>
             <div className="project-tags">
               <span className="tag">Python</span>
